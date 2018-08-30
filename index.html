@@ -7,182 +7,162 @@
 <meta http-equiv="Generator" content="pgBadger">
 <meta http-equiv="Date" content="Tue Aug 28 18:29:36 2018">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="keywords" content="PostgreSQL log analyzer graphical reports">
 <meta name="description" content="PostgreSQL log analyzer with fully detailed reports and graphs">
 <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAIyMQAAEABAA8BAAAFgAAACgAAAAjAAAARgAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAGRsZACgqKQA2OTcASEpJAFpdWwBoa2kAeHt5AImMigCeoZ8AsLOxAMTHxQDR1NIA5enmAPv+/AAAAAAA///////////////////////wAAD///////////H///////////AAAP////////9Fq7Yv////////8AAA////////8V7u7qD////////wAAD///////8B7qWN5AL///////AAAP/////y8Avrc3rtMCH/////8AAA/////xABvbAAAJ6kAA/////wAAD////wAG5tQAAADp6RAP////AAAP//MQBd7C2lRESOWe5xAD//8AAA//8APO7iC+7e7u4A3uxwBf/wAAD/9Aju7iAAvu7u0QAN7ukA7/AAAP/wCe7kAAAF7ugAAAHO6xD/8AAA//AK7CAAAAHO1AAAABnrEP/wAAD/8ArAAAAAAc7kAAAAAIwQ//AAAP/wCjAAAAAC3uQAAAAAHBCf8AAA//AIEBVnIATu5gAXZhAFEP/wAAD/8AIAqxdwBu7pAFoX0QIQ//AAAP/wAAPsBCAL7u4QBwfmAAD/8AAA//AAA8owAC7u7lAAKbYAAJ/wAAD/8AAAAAAAfu7uwAAAAAAA//AAAP/wAAAAAADu7u7jAAAAAAD/8AAA//AAAAAABe7u7uoAAAAAAP/wAAD/8AAAAAAL7u7u7QAAAAAAn/AAAP/wAAAAAB3u7u7uYAAAAAD/8AAA//MAAAAATu7u7u6QAAAAAP/wAAD//wAAAAAM7u7u7TAAAAAD//AAAP//IQAAAAKu7u7UAAAAAB//8AAA////IAAAAAju7BAAAAAP///wAAD////2AAA1je7ulUAAA/////AAAP/////xEAnO7u7pIAH/////8AAA//////9CABju6iACP//////wAAD////////wAAggAP////////AAAP////////8wAAA/////////8AAA///////////w///////////wAAD///////////////////////AAAP/////gAAAA//+//+AAAAD//Af/4AAAAP/4A//gAAAA//AA/+AAAAD/oAA/4AAAAP8AAB/gAAAA/gAAD+AAAADwAAAB4AAAAPAAAADgAAAA4AAAAGAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAYAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAA AOAAAABgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAGAAAADgAAAA4AAAAOAAAADgAAAA8AAAAOAAAADwAAAB4AAAAPwAAAfgAAAA/gAAD+AAAAD/gAA/4AAAAP/AAH/gAAAA//gD/+AAAAD//Af/4AAAAP//v//gAAAA/////+AAAAA" />
 
   <link rel="stylesheet" href="rsc/bootstrap.css">
-  <link rel="stylesheet" href="rsc/style.css">
-  <link rel="stylesheet" href="rsc/style_002.css">
-  <link rel="stylesheet" href="rsc/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="rsc/pgbadger_style.css">
+  <script src="rsc/jquery-3.js"></script>
+  <script src="rsc/bootstrap.js"></script>
+
 <style>
 html, body { margin:0; height: 100%;}
 </style>
 </head>
 <body>
 	
-<section class="menu cid-qv1frvgcz3" once="menu" id="menu1-2" data-rv-view="8240">
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm transparent navbar-short">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
+<section class="menu" id="menu">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark">
         <div class="menu-logo">
             <div class="navbar-brand">
-                
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="http://pgbadger.darold.net/">
+                <span class="navbar-caption-wrap"><a class="navbar-caption" href="http://pgbadger.darold.net/">
                         PGBADGER</a></span>
             </div>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-		<li class="nav-item"><a class="nav-link link text-white display-4" href="#news">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+		<li class="nav-item"><a class="nav-link link" href="#news">
                         NEWS</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="#download">
+                <li class="nav-item"><a class="nav-link link" href="#download">
 			DOWNLOAD</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="#license">
+                <li class="nav-item"><a class="nav-link link" href="#license">
 			LICENSE</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="#support">
+                <li class="nav-item"><a class="nav-link link" href="#support">
 			SUPPORT</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="#reports">
-			SAMPLE REPORTS</a></li>
-                <li class="nav-item"><a class="nav-link link text-white display-4" href="documentation.html">
+                <li class="nav-item"><a class="nav-link link" href="#reports">
+			EXAMPLES</a></li>
+                <li class="nav-item"><a class="nav-link link" href="documentation.html">
                         DOCUMENTATION</a></li>
 	    </ul>
         </div>
     </nav>
 </section>
 
-<section class="header1 cid-qv1fpt1o2q mbr-parallax-background" id="header1-1" data-rv-view="8242" data-jarallax-original-styles="null" style="z-index: 0; position: relative; background-image: none; background-attachment: scroll; background-size: auto auto;height: 100%;">
+<section class="header" id="header">
 
-    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(51, 42, 104); height: 100%;">
+    <div class="cover" style="opacity: 0.8; background-color: rgb(51, 42, 104); height: 100%;">
     </div>
 
     <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="mbr-white col-md-10">
-                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">The PostgreSQL log analyzer</h1>
-                
-                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
-                    Make your reports in seconds!</p>
+        <div class="row justify-content-center">
+            <div class="col">
+                <h1 class="text-center text-white">The PostgreSQL log analyzer</h1>
+                <h3 class="text-center text-white">Make your reports in seconds!</h3>
             </div>
         </div>
     </div>
 
-<section class="mbr-section content6 cid-qvFUWo0tD0" id="content6-cr" data-rv-view="8316">
     <div class="container">
-        <div class="media-container-row">
-            <div class="col-12 col-md-8">
-                <div class="media-container-row">
-                    <div class="mbr-figure" style="width: 350px;">
-                      <img src="logo_pgbadger.png" alt="pgBadger" title="" media-simple="true"></a>  
-                    </div>
-                    <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-0 mbr-fonts-style display-5">
+        <div class="row justify-content-center white-bg">
+	    <div class="col-md-4 col-sm-12 mx-auto text-center">
+                <img src="logo_pgbadger.png" alt="pgBadger"></a>  
+	    </div>
+	    <div class="col-md-8 col-sm-12">
+                    <div class="text-zone" id="headertext">
+                            <p>
 			    <br>
 pgBadger is a PostgreSQL log analyzer built for speed with fully detailed reports and professional rendering.  It outperform any other PostgreSQL log analyzer.
 			    <br>
-			    <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="#about" style="background-color: rgb(51, 42, 104); opacity: 0.8; border-color: rgb(51, 42, 104);">
+			    <div class="navbar-buttons"><a class="btn btn-sm btn-primary small-text" href="#about" style="background-color: rgb(51, 42, 104); opacity: 0.8; border-color: rgb(51, 42, 104);">
                     LEARN MORE</a></div>
 			    </p>
-                        </div>
                     </div>
-                </div>
+	    </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="title-section" id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3>ABOUT</h3>
             </div>
         </div>
     </div>
 </section>
 
-</section>
-
-<section class="mbr-section content4 cid-qxVpIJ8WtD" id="about" data-rv-view="8245">
+<section class="bloc-section" id="about-text">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    ABOUT</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section content4 cid-qvFUn4OFIf" id="about-text" data-rv-view="8314">
-    <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                    <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                    <div class="text-zone">
+                            <p>
 pgBadger is a standalone Perl program that uses a javascript library (flotr2) to draw graphs so that you don't need to install any additional modules or other packages. Furthermore, this library gives us more features such as zooming. pgBadger also uses the Bootstrap javascript library and the FontAwesome webfont for better design. Everything is embedded.
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
-pgBadger is able to autodetect your PostgreSQL log file format (syslog, stderr, csvlogi or jsonlog) as well as pgbouncer log file. It is designed to parse huge log files as well as gzip compressed file. See a complete list of features below.
+                            <p>
+pgBadger is able to autodetect your PostgreSQL log file format (syslog, stderr, csvlog or jsonlog) as well as pgbouncer log file. It is designed to parse huge log files as well as gzip compressed file. See a complete list of features below.
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                            <p>
 All charts are zoomable and can be saved as PNG images.
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                            <p>
 You can also limit pgBadger to only report errors or remove any part of the report using command line options.
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                            <p>
 			    pgBadger supports any custom format set into the log_line_prefix directive of
 your postgresql.conf file as long as it at least specify a time escape sequence
 (%t, %m or %n) and the process related escape sequence (%p or %c).
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                            <p>
 pgBadger allow parallel processing on a single log file and multiple files through the use of the -j or -J options and the number of CPUs as value.
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                            <p>
 If you want to save system performance you can also use log_duration instead of log_min_duration_statement to have reports on duration and number of queries only.
 			    </p>
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                            <p>
 pgBadger supports an incremental mode that allow to construct incremental reports after successives runs of pgBadger. It is possible to run pgbadger each days or even more, each hours, and have cumulatives reports per day and per week. A top index page will allow you to go directly to the weekly and daily reports. 
 			    </p>
-			</div>
 		    </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mbr-section content4 cid-qxVpIJ8WtD" id="news" data-rv-view="8245">
+<section class="title-section" id="news">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    LATEST PGBADGER NEWS</h2>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3>LATEST PGBADGER NEWS</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mbr-section content4 cid-qvFUn4OFIf" id="news-text" data-rv-view="8314">
+<section class="bloc-section" id="news-text">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
 
 		<hr />
-		<h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5"><strong>pgBadger is back to home</strong> - 2018-08-28</h3>
-                <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+		<h3><code>pgBadger is back to home - 2018-08-28</code></h3>
+                <div class="text-zone">
+                            <p>
 			    After one year I'm please to announce that the badger is back to home. A new version is coming soon fixing all pending issues and more as usual. I built a new website tonight for the occasion.<br>
 			Welcome back home pgBadger!
 			    </p>
-			</div>
 		</div>
 
 		<hr />
-		<h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5"><strong>Version 9.2</strong> - 2017-07-27</h3>
-                <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+		<h3><code>Version 9.2 - 2017-07-27</code></h3>
+                <div class="text-zone">
+                            <p>
 This release of pgBadger is a maintenance release that also adds some new features.
 </p>
 <pre>
@@ -191,7 +171,7 @@ This release of pgBadger is a maintenance release that also adds some new featur
   * Add autodetection of log format in remote mode to allow remote
     parsing of pgbouncer log file together with PostgreSQL log file.
 </pre>
-<p class="mbr-text mb-5 mbr-fonts-style display-5">
+<p>
 There's also some bugs fixes and features enhancements.
 </p>
 <pre>
@@ -238,14 +218,12 @@ There's also some bugs fixes and features enhancements.
   - Minor reformatting of the pgBadger Description.
   - Fix repeated info in documentation. Thanks to cscatolini for the patch.
 </pre>
-			</div>
 		</div>
 
 		<hr />
-		<h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5"><strong>Version 9.1</strong> - 2017-01-24</h3>
-                <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+		<h3><code>Version 9.1 - 2017-01-24</code></h3>
+                <div class="text-zone">
+                            <p>
 This release of pgBadger is a maintenance release that adds some new
 features.
 </p>
@@ -261,7 +239,7 @@ features.
   * Add --start-monday option to start calendar weeks in Monday
     instead of default to Sunday.
 </pre>
-<p class="mbr-text mb-5 mbr-fonts-style display-5">
+<p>
 There's also some bugs fixes and features enhancements.
 </p>
 <pre>
@@ -314,19 +292,17 @@ There's also some bugs fixes and features enhancements.
     Chesterton for the report.
   - Fix support to %r placeholder in prefix instead of %h.
 </pre>
-			</div>
 		</div>
 
 		<hr />
-		<h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5"><strong>Version 9.0</strong> - 2016-09-02</h3>
-                <div class="media-content">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-5 mbr-fonts-style display-5">
+		<h3><code>Version 9.0 - 2016-09-02</code></h3>
+                <div class="text-zone">
+                            <p>
 This major release of pgBadger is a port to bootstrap 3 and a version
 upgrade of all resources files (CSS and Javascript). There's also some
 bugs fixes and features enhancements.
 </p>
-<p class="mbr-text mb-5 mbr-fonts-style display-5">
+<p>
 Backward compatibility with old incremental report might be preserved.
 </p>
 <pre>
@@ -387,7 +363,6 @@ Backward compatibility with old incremental report might be preserved.
     into pgbadger.  This script will also embedded the FontAwesome.otf
     open truetype font into the fontawesome.css file.
 </pre>
-			</div>
 		</div>
 			</div>
 		    </div>
@@ -396,248 +371,199 @@ Backward compatibility with old incremental report might be preserved.
     </div>
 </section>
 
-<section class="mbr-section content4 cid-qxVpIJ8WtD" id="download" data-rv-view="8245">
+<section class="title-section" id="download">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    DOWNLOAD</h2>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3>DOWNLOAD</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section class="features2 cid-qyvQ2gAtvk" id="download-text" data-rv-view="1349">
+<section class="bloc-section" id="download-text">
 
     <div class="container">
-        <div class="media-container-row">
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Official releases</b></h2>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Official releases</h3>
+                        <p>
 Official release are published to the <a href="https://github.com/darold/pgbadger/releases">GitHub Release page</a> of pgBadger.
 			</p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                        <p>
 Not all release are subject to a notification sent to the pgsql-announce mailling list, this is reserved to the main releases.
 			</p>
-                    </div>
                 </div>
             </div>
 
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box ">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Binary packages</b></h2>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Binary packages</h3>
+                        <p>
 			pgBadger may have a binary package corresponding to your distribution. For RPM packages, thanks to the great work of Devrim GÜNDÜZ, you can find the pgBadger package at the <a href="http://yum.postgresql.org/packages.php">PostgreSQL yum repository</a>
 		        </p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
-			Thanks to Christoph Berg packages for Debian and Ubuntu are available in the <a href="https://wiki.postgresql.org/wiki/Apt">PostgreSQL apt repository</a>
+                        <p>
+			Thanks to Christoph BERG packages for Debian and Ubuntu are available in the <a href="https://wiki.postgresql.org/wiki/Apt">PostgreSQL apt repository</a>
 			</p>
-                    </div>
                 </div>
             </div>
 
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Development code</b></h2>
-                        <p class="mbr-text mbr-fonts-style display-5">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Development code</h3>
+                        <p>
 			The latest development code can always be found into the <a href="https://github.com/darold/pgbadger/">pgBadger's GitHub repository</a>
 			</p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mbr-section content4 cid-qxVpIJ8WtD" id="license" data-rv-view="8245">
+<section class="title-section" id="license">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    LICENSE</h2>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3>LICENSE</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section class="features2 cid-qyvQ2gAtvk" id="license-text" data-rv-view="1349">
+<section class="bloc-section" id="license-text">
 
     <div class="container">
-        <div class="media-container-row">
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Pricing</b></h2>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Pricing</h3>
+                        <p>
 			pgBadger is Free Software and is made fully available free of charge, you can use it as you want without having to pay anything.
 			</p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                        <p>
 			Please just pay attention to support the author of pgBadger with your donation, which is purely optional.
 			</p>
-                    </div>
                 </div>
             </div>
 
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box ">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>License</b></h2>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>License</h3>
+                        <p>
 			PostgreSQL is released under the  <a href="http://www.opensource.org/licenses/postgresql">PostgreSQL License</a>, a liberal Open Source license, similar to the BSD or MIT licenses.
 		        </p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                        <p>
 			Copyright &copy; 2012-2018 Gilles Darold.
 		        </p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                        <p>
 A modified version of the SQL::Beautify Perl Module is embedded in pgBadger with copyright (C) 2009 by Jonas Kramer published under the terms of the Artistic License 2.0.
 			</p>
-                    </div>
                 </div>
             </div>
 
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Development effort</b></h2>
-                        <p class="mbr-text mbr-fonts-style display-5">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Development effort</h3>
+                        <p>
 Source Lines of Perl Code: 14054
 			</p>
-                        <p class="mbr-text mbr-fonts-style display-5">
+                        <p>
 Total Estimated Cost to Develop: $454,166
 			</p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                        <p>
 (Generated using David A. Wheeler's 'SLOCCount'.)
 			</p>
 			</pre>
 			</p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mbr-section content4 cid-qxVpIJ8WtD" id="support" data-rv-view="8245">
+<section class="title-section" id="support">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    SUPPORT</h2>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3>SUPPORT</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section class="features2 cid-qyvQ2gAtvk" id="support-text" data-rv-view="1349">
+<section class="bloc-section" id="support-text">
 
     <div class="container">
-        <div class="media-container-row">
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Feature request & Bugs</b></h2>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Feature request & Bugs</h3>
+                        <p>
 			Please report any bugs, patches, discussion, etc. using the GitHub tools at <a href="https://github.com/darold/pgbadger/">https://github.com/darold/pgbadger/</a>.
 			</p>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
+                        <p>
 If you need new features or you think something is missing, please send your comments and requests. This helps a lot to develop a better/useful tool.
 			</p>
-                    </div>
                 </div>
             </div>
 
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box ">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>How to contribute</b></h2>
-                        <p class="mbr-text mbr-fonts-style display-5">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>How to contribute</h3>
+                        <p>
 			Any contribution to build a better tool is welcome, you just have to send your ideas, features request or patches using the GitHub tools at <a href="https://github.com/darold/pgbadger/">https://github.com/darold/pgbadger/</a>.
 		        </p>
-                    </div>
                 </div>
             </div>
 
-            <div class="card p-3 col-12 col-md-6 col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-box">
-			    <br/>
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>Commercial support</b></h2>
-                        <p class="mbr-text mbr-fonts-style display-5">
+            <div class="col-md-4 col-sm-12">
+                <div class="text-section">
+			<h3>Commercial support</h3>
+                        <p>
 			For a complete list of commercial support near of your place take a look at the <a href="http://www.postgresql.org/support/professional_support">PostgreSQL Professional Services</a> page, they all do great job and most of them can help you.
 			</p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="mbr-section content4 cid-qxVpIJ8WtD" id="reports" data-rv-view="8245">
+<section class="title-section" id="reports">
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    SAMPLE REPORTS</h2>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="features2 cid-qyvQ2gAtvk" id="support-text" data-rv-view="1349">
-
-    <div class="container">
-        <div class="col-md-12">
-		<div class="card p-3 pr-3">
-                    <div class="card-box">
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
-			&nbsp;
-			</p>
-                    </div>
-                    <div class="card-box">
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>v8.x sample reports</b></h2>
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
-			The sample report generated by pbBadger v7.x can be found <a href="http://pgbadger.darold.net/samplev7.html">here</a> with pgbouncer statistics.
-			</p>
-                    </div>
-
-                    <div class="card-box ">
-			    <h2 class="card-title pb-3 mbr-fonts-style display-6"><b>v6.x incremental reports</b></h2>
-                        <p class="mbr-text mbr-fonts-style display-5">
-			Sample report generated by pbBadger v6.x with incremental mode can be found <a href="http://pgbadger.darold.net/demov6/index.html">here</a>.
-		        </p>
-                    </div>
-                    <div class="card-box">
-                        <p class="mbr-text mb-5 mbr-fonts-style display-5">
-			&nbsp;
-			</p>
-                    </div>
-		</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section once="" class="cid-qvFBso7Oqs" id="footer6-c5" data-rv-view="8331">
-    <div class="container">
-        <div class="media-container-row align-center mbr-white">
+        <div class="row justify-content-center">
             <div class="col-12">
-                <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                    &copy; Copyright 2012-2018 Gilles Darold - All Rights Reserved
-                </p>
+                <h3>SAMPLE REPORTS</h3>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="bloc-section" id="support-text">
+
+    <div class="container">
+        <div class="col-12">
+             <div class="text-section">
+		<h3><b>v8.x sample reports</b></h3>
+                <p>
+		The sample report generated by pbBadger v7.x can be found <a href="http://pgbadger.darold.net/samplev7.html">here</a> with pgbouncer statistics.
+		</p>
+		<hr />
+		<h3><b>v6.x incremental reports</b></h3>
+                <p>
+		Sample report generated by pbBadger v6.x with incremental mode can be found <a href="http://pgbadger.darold.net/demov6/index.html">here</a>.
+		</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer" id="footer">
+    <div class="container">
+         <div class="col-12">
+            <p class="copyright">
+            &copy; Copyright 2012-2018 Gilles Darold - All Rights Reserved
+            </p>
         </div>
     </div>
 </section>

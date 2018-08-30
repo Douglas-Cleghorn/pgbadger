@@ -2,88 +2,35 @@
 <head>
 <title>pgBadger Documentation</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="rsc/bootstrap.css">
-  <link rel="stylesheet" href="rsc/style.css">
-  <link rel="stylesheet" href="rsc/style_002.css">
-  <link rel="stylesheet" href="rsc/mbr-additional.css" type="text/css">
+
+<link rel="stylesheet" href="rsc/bootstrap.css">
+<link rel="stylesheet" href="rsc/pgbadger_style.css">
+<script src="rsc/jquery-3.js"></script>
+<script src="rsc/bootstrap.js"></script>
 
 <style>
-body {
-  opacity: 0.8; background-color: rgb(51, 42, 104);
-  margin: 50px;
-}
-
-a {
-	opacity: 0.8; color: rgb(51, 42, 104);
-}
-
-h1 {
-  margin-top: 30px;
-  font-size: 2em;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.6em;
-}
-
-ul li {
-  list-style-type: none;
-}
-
-h3, h3 small {
-	font-size: 1.1em;
-	text-transform: uppercase;
-	letter-spacing: .1em;
-}
-
-h3 small {
-	font-size: 1em;
-}
-
-.analysis-item {
-	background: #fff;
-	margin: 2em 0;
-	padding: 2em 0;
-}
-
-.analysis-item h2 {
-	margin: 1em 0 .5em 1em;
-
-}
-
-h3 {
-	margin: 0;
-	padding: 0;
-	color: #5f5555;
-}
-
-h1.page-header {
-	margin: 1em 0 1em 0;
-	padding: 0;
-	color: #5f5555;
-	border-bottom: none;
-}
-
-h2 {
-	color:#5f5555;
-}
-
-.span8 {
-  margin: 25px;
-}
-
-footer {
-	margin-top: 60px;
-}
+p { font-size: 1.2rem; }
 </style>
+
 </head>
 
 <body>
 
-<div id="documentation" class="analysis-item row-fluid">
-<h1>&nbsp;&nbsp;&nbsp;&nbsp;PGBADGER DOCUMENTATION</h1>
-<div class="span8">
+<section class="title-section" id="documentation">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h3>PGBADGER DOCUMENTATION</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bloc-section" id="about-text">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+		 <div class="text-zone">
 <ul id="index">
   <li><a href="#NAME">NAME</a></li>
   <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
@@ -92,20 +39,19 @@ footer {
   <li><a href="#REQUIREMENT">REQUIREMENT</a></li>
   <li><a href="#INSTALLATION">INSTALLATION</a></li>
   <li><a href="#POSTGRESQL-CONFIGURATION">POSTGRESQL CONFIGURATION</a></li>
-  <li><a href="#log_min_duration_statement-log_duration-and-log_statement">log_min_duration_statement, log_duration and log_statement</a></li>
+  <li><a href="#log_min_duration_statement-log_duration-and-log_statement">log_min_duration_statement vs log_duration+log_statement</a></li>
   <li><a href="#PARALLEL-PROCESSING">PARALLEL PROCESSING</a></li>
   <li><a href="#INCREMENTAL-REPORTS">INCREMENTAL REPORTS</a></li>
   <li><a href="#BINARY-FORMAT">BINARY FORMAT</a></li>
   <li><a href="#JSON-FORMAT">JSON FORMAT</a></li>
   <li><a href="#AUTHORS">AUTHORS</a></li>
-  <li><a href="#LICENSE">LICENSE</a></li>
 </ul>
 
-<h1 id="NAME">NAME</h1>
+<h3 id="NAME">NAME</h3>
 
 <p>pgBadger - a fast PostgreSQL log analysis report</p>
 
-<h1 id="SYNOPSIS">SYNOPSIS</h1>
+<h3 id="SYNOPSIS">SYNOPSIS</h3>
 
 <p>Usage: pgbadger [options] logfile [...]</p>
 
@@ -340,7 +286,7 @@ footer {
 
 <p>it will also update all resource files (JS and CSS).</p>
 
-<h1 id="DESCRIPTION">DESCRIPTION</h1>
+<h3 id="DESCRIPTION">DESCRIPTION</h3>
 
 <p>pgBadger is a PostgreSQL log analyzer built for speed with fully reports from your PostgreSQL log file. It&#39;s a single and small Perl script that outperforms any other PostgreSQL log analyzer.</p>
 
@@ -358,7 +304,7 @@ footer {
 
 <p>If you want to save system performance you can also use log_duration instead of log_min_duration_statement to have reports on duration and number of queries only.</p>
 
-<h1 id="FEATURE">FEATURE</h1>
+<h3 id="FEATURE">FEATURE</h3>
 
 <p>pgBadger reports everything about your SQL queries:</p>
 
@@ -423,7 +369,7 @@ footer {
 
 <p>pgBadger can also be used in a central place to parse remote log files using a passwordless SSH connection. This mode can be used with compressed files and in the multiprocess per file mode (-J) but can not be used with the CSV log format.</p>
 
-<h1 id="REQUIREMENT">REQUIREMENT</h1>
+<h3 id="REQUIREMENT">REQUIREMENT</h3>
 
 <p>pgBadger comes as a single Perl script - you do not need anything other than a modern Perl distribution. Charts are rendered using a JavaScript library so you don&#39;t need anything other than a web browser. Your browser will do all the work.</p>
 
@@ -450,7 +396,7 @@ footer {
 
 <p>Note that multiprocessing can not be used with compressed files or CSV files as well as under Windows platform.</p>
 
-<h1 id="INSTALLATION">INSTALLATION</h1>
+<h3 id="INSTALLATION">INSTALLATION</h3>
 
 <p>Download the tarball from GitHub and unpack the archive as follow:</p>
 
@@ -469,7 +415,7 @@ footer {
 
 <p>By default INSTALLDIRS is set to site.</p>
 
-<h1 id="POSTGRESQL-CONFIGURATION">POSTGRESQL CONFIGURATION</h1>
+<h3 id="POSTGRESQL-CONFIGURATION">POSTGRESQL CONFIGURATION</h3>
 
 <p>You must enable and set some configuration directives in your postgresql.conf before starting.</p>
 
@@ -521,7 +467,7 @@ footer {
 
 <p>but this is not only recommended by pgBadger.</p>
 
-<h1 id="log_min_duration_statement-log_duration-and-log_statement">log_min_duration_statement, log_duration and log_statement</h1>
+<h3 id="log_min_duration_statement-log_duration-and-log_statement">log_min_duration_statement vs log_duration+log_statement</h3>
 
 <p>If you want the query statistics to include the actual query strings, you must set log_min_duration_statement to 0 or more milliseconds.</p>
 
@@ -529,7 +475,7 @@ footer {
 
 <p>Enabling log_min_duration_statement will add reports about slowest queries and queries that took up the most time. Take care that if you have log_statement set to &#39;all&#39; nothing will be logged with log_line_prefix.</p>
 
-<h1 id="PARALLEL-PROCESSING">PARALLEL PROCESSING</h1>
+<h3 id="PARALLEL-PROCESSING">PARALLEL PROCESSING</h3>
 
 <p>To enable parallel processing you just have to use the -j N option where N is the number of cores you want to use.</p>
 
@@ -568,7 +514,7 @@ footer {
 
 <p>IMPORTANT: when you are using parallel parsing pgBadger will generate a lot of temporary files in the /tmp directory and will remove them at the end, so do not remove those files unless pgBadger is not running. They are all named with the following template tmp_pgbadgerXXXX.bin so they can be easily identified.</p>
 
-<h1 id="INCREMENTAL-REPORTS">INCREMENTAL REPORTS</h1>
+<h3 id="INCREMENTAL-REPORTS">INCREMENTAL REPORTS</h3>
 
 <p>pgBadger includes an automatic incremental report mode using option -I or --incremental. When running in this mode, pgBadger will generate one report per day and a cumulative report per week. Output is first done in binary format into the mandatory output directory (see option -O or --outdir), then in HTML format for daily and weekly reports with a main index file.</p>
 
@@ -585,7 +531,7 @@ footer {
 
 <p>To save disk space you may want to use the -X or --extra-files command line option to force pgBadger to write JavaScript and CSS to separate files in the output directory. The resources will then be loaded using script and link tags.</p>
 
-<h1 id="BINARY-FORMAT">BINARY FORMAT</h1>
+<h3 id="BINARY-FORMAT">BINARY FORMAT</h3>
 
 <p>Using the binary format it is possible to create custom incremental and cumulative reports. For example, if you want to refresh a pgBadger report each hour from a daily PostgreSQL log file, you can proceed by running each hour the following commands:</p>
 
@@ -608,11 +554,11 @@ footer {
 
 <p>Adjust the commands to suit your particular needs.</p>
 
-<h1 id="JSON-FORMAT">JSON FORMAT</h1>
+<h3 id="JSON-FORMAT">JSON FORMAT</h3>
 
 <p>JSON format is good for sharing data with other languages, which makes it easy to integrate pgBadger result into other monitoring tools like Cacti or Graphite.</p>
 
-<h1 id="AUTHORS">AUTHORS</h1>
+<h3 id="AUTHORS">AUTHORS</h3>
 
 <p>pgBadger is an original work from Gilles Darold.</p>
 
@@ -626,15 +572,10 @@ footer {
 
 <p>Many people have contributed to pgBadger, they are all quoted in the Changelog file.</p>
 
-<h1 id="LICENSE">LICENSE</h1>
-
-<p>pgBadger is free software distributed under the PostgreSQL Licence.</p>
-
-<p>Copyright (c) 2012-2018, Gilles Darold</p>
-
-<p>A modified version of the SQL::Beautify Perl Module is embedded in pgBadger with copyright (C) 2009 by Jonas Kramer and is published under the terms of the Artistic License 2.0.</p>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 
